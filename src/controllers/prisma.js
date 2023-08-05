@@ -17,7 +17,6 @@ exports.hanldlerGetAllUser = async (req, res) => {
 exports.handleCreateUser = async (req, res) => {
   try {
     const data = req.body;
-    console.log(data)
 
     const newUser = await prisma.user.create({
       data: {
@@ -32,7 +31,7 @@ exports.handleCreateUser = async (req, res) => {
     res.status(201).send(newUser);
 
   } catch (error) {
-    console.log(error)
+
     res.status(400).send({ message: error.message });
   }
 }
